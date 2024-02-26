@@ -7,7 +7,7 @@ from .modules import extractor
 
 def process_image(image_path, params):
     image_basename = os.path.splitext(os.path.basename(image_path))[0]
-    keypoints_color = params.get("keypoints_color", (0, 0, 255))
+    keypoints_color = params.get("keypoints_color", None)
     margin_ratio = params.get("margin_ratio", 0.5)
     try:
         for model in params.get("models", []):

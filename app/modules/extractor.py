@@ -75,7 +75,8 @@ def extract_face_features_dlib(image_path, model_name, image_basename, keypoint_
 
             output_dir = utils.create_output_directory(model_name)
 
-            # utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
+            if keypoint_color:
+                utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
             utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_without_points.jpg', face_image_without_points)
             
             face_count += 1
@@ -126,7 +127,9 @@ def extract_face_features_mediapipe(image_path, model_name, image_basename, keyp
                     cv2.circle(face_image_with_points, (x, y), 1, keypoint_color, -1)
 
             output_dir = utils.create_output_directory(model_name)
-            # utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
+
+            if keypoint_color:
+                utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
             utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_without_points.jpg', face_image_without_points)
 
             face_count += 1
