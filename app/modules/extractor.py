@@ -90,8 +90,8 @@ def extract_face_features_dlib(image_path, model_name, image_basename, keypoint_
 
             if keypoint_color:
                 utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
-
-            utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}.jpg', face_image_without_points)
+            utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_without_points.jpg', face_image_without_points)
+            
             face_count += 1
         else:
             print(f"No aligned faces found in the image for model {model_name}.")
@@ -149,8 +149,7 @@ def extract_face_features_mediapipe(image_path, model_name, image_basename, keyp
 
             if keypoint_color:
                 utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_with_points.jpg', face_image_with_points)
-            
-            utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}.jpg', face_image_without_points)
+            utils.save_image(f'{output_dir}/{image_basename}_face_{face_count}_without_points.jpg', face_image_without_points)
             face_count += 1
 
     face_mesh.close()
